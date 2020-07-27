@@ -1,0 +1,25 @@
+{
+  "name": "burger_express_handlebars",
+  "version": "1.0.0",
+  "description": "Eat-Da-Burger!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evandev01/burger_express_handlebars.git"
+  },
+  "author": "Evan Bero (evanDev)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/evandev01/burger_express_handlebars/issues"
+  },
+  "homepage": "https://github.com/evandev01/burger_express_handlebars#readme",
+  "dependencies": {
+    "config.json": "0.0.4",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
+    "mysql": "^2.18.1"
+  }
+}
