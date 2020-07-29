@@ -1,6 +1,11 @@
 var mysql = require("mysql");
-const { response } = require("express");
-var exp_handlebars = require("express-handlebars");
+var express = require("express");
+var exphbs = require("express-handlebars");
+
+var app = express();
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 var connection = mysql.createConnection({
   host: "localhost",
