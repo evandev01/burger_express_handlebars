@@ -1,22 +1,26 @@
-var mysql = require("mysql");
 var express = require("express");
 var exphbs = require("express-handlebars");
 
 var app = express();
 
+var PORT = process.env.PORT || 8080;
+
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-var connection = mysql.createConnection({
-  host: "localhost",
-  port: 3306,
-  user: "root",
-  password: "password",
-  database: "burgers_db"
+app.use(express.static("public"));
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+
+var routes = require("./controllers/burgers_controller.js")
+app.use(routes);
+
+app.listen(PORT, ()=>{
+  console.log("Server listening on port " + PORT)
 });
 
-connection.connect(function (err) {
-  if (err) throw err;
-  console.log("Connected as id " + connection.threadId);
-});
+
+
 
