@@ -1,7 +1,21 @@
-
-<ul>
-{{#each burgers}}
-<li>Name: {{burger_name}}</li>
-<li><button>Devoured</button></li>
-</ul>
-{{/each}};
+<div class="col-md-1"></div>
+<div class="col-md-4">
+    <h1>Burger Menu</h1>
+    <ul>
+        {{#each burgers}}
+        <li>Name: {{burger_name}}</li>
+        <li><button id="devour" class="btn btn-primary">Devoured</button></li>
+    </ul>
+    {{/each}};
+</div>
+<div class="col-md-2"></div>
+<div class="col-md-4">
+    <h1>Devoured Burgers</h1>
+    <ul>
+        {{#each burgers}}
+        <li>Name: {{burger_name}}</li>
+        <li><button id="delete" class="btn btn-primary">Delete</button></li>
+    </ul>
+    {{/each}};
+</div>
+<div class="col-md-1"></div>
