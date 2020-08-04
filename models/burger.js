@@ -8,18 +8,18 @@ var burger = {
         });
     },
      // The variables cols and vals are arrays.
-    create: (cols, vals, cb) => {
-        orm.create("burgers", cols, vals, (res) => {
+    create: (name, cb) => {
+        orm.create("burgers", name, (res) => {
             cb(res);
         });
     },
-    update: (objColVals, condition, cb)=>{
-        orm.update("burgers", objColVals, condition, (res)=>{
+    update: (id, cb)=>{
+        orm.update("burgers", id, (res)=>{
             cb(res);
         });
     },
-    delete: (condition, cb)=>{
-        orm.delete("burgers", condition, (res)=>{
+    delete: (id, cb)=>{
+        orm.delete("burgers", id, (res)=>{
             cb(res);
         });
     }

@@ -3,19 +3,23 @@
     <h1>Burger Menu</h1>
     <ul>
         {{#each burgers}}
-        <li>Name: {{burger_name}}</li>
-        <li><button id="devour" class="btn btn-primary">Devoured</button></li>
+        {{#unless this.devoured}}
+        <li>{{this.burger_name}}</li>
+        <li><button id="devour" data-id={{this.id}} class="btn btn-primary">Devour</button></li>
     </ul>
-    {{/each}};
+    {{/unless}}
+    {{/each}}
 </div>
 <div class="col-md-2"></div>
 <div class="col-md-4">
     <h1>Devoured Burgers</h1>
     <ul>
         {{#each burgers}}
-        <li>Name: {{burger_name}}</li>
-        <li><button id="delete" class="btn btn-primary">Delete</button></li>
+        {{#if this.devoured}}
+        <li>{{this.burger_name}}</li>
+        <li><button id="delete" class="btn btn-primary" value="true">Delete</button></li>
     </ul>
-    {{/each}};
+    {{/if}}
+    {{/each}}
 </div>
 <div class="col-md-1"></div>

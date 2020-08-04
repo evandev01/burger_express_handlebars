@@ -3,29 +3,23 @@
 $(function () {
 
     //ajax put request to change status to "devoured"
-    $("#devour").on(click, (event) => {
+    $("#devour").on("click", (event) => {
         var id = $(this).data("id");
-        var newDevour = $(this).data("newdevour");
-
-        var newDevourStatus = {
-            devoured: newDevour
-        };
-        $.ajax(`/api/burgers/${id}`, {
-            type: "PUT",
-            data: newDevourStatus
-        }).then(function () {
-            console.log("changed devour status to 'devoured'");
-            location.reload();
-        });
+        console.log("I just clicked " + id)
+        // $.ajax(`/api/burgers/${id}`, {
+        //     type: "PUT"
+        // }).then(function () {
+        //     location.reload();
+        // });
     })
 
     //ajax post request
     $(".form-control").on("submit", (event) => {
         event.preventDefault();
         var newBurger = {
-            name: $("#burgerInput").val().trim()
+            name: $("burgerInput").val().trim()
         };
-        $.ajax(`/api/burgers/${id}`, {
+        $.ajax("/api/burgers", {
             type: "POST",
             data: newBurger
         }).then(function () {

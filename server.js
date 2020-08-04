@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
-var routes = require("./controllers/burgers_controller.js")
+var routes = require("./controllers/burgers_controller")
 app.use(routes);
 
 app.listen(PORT, ()=>{

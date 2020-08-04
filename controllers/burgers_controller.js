@@ -14,24 +14,34 @@ router.get("/", (req, res) => {
   });
 });
 
+// router.post("/api/burgers", (req, res) => {
+//   console.log("created burger")
+//   burger.create(["burger_name"], [req.body.name], (result) => {
+//     console.log(result);
+//     result.json({ id: this.id })
+//   });
+// });
+
 router.post("/api/burgers", (req, res) => {
-  burger.create(["name", "devoured"], [req.body.burgerName, req.body.devouredBtn], (result) => {
-    res.json({ id: this.id })
+  console.log("created burger")
+  burger.create(req.body.name, (result) => {
+    console.log(result);
+    res.status(200).end();
+    // res.render("index", hbsObj);
   });
 });
 
 router.put("/api/burgers/:id", (req, res) => {
-  var condition = "id = " + req.params.id;
+  var id = "id = " + req.params.id;
 
-  console.log("condition", condition);
+  console.log("id", id);
 
-  burger.update({
-    devoured: req.body.devouredBtn
-  }, condition, (result) => {
+  burger.update(id, (result) => {
     if (result.changedRows == 0) {
       return res.status(404).end();
     } else {
-      res.status(200).end();
+      // res.status(200).end();
+      res.redirect("/")
     };
   });
 });
