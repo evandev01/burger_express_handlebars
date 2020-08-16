@@ -7,14 +7,14 @@ var burger = {
             cb(res);
         });
     },
-     // The variables cols and vals are arrays.
+     
     create: (name, cb) => {
         orm.create("burgers", name, (res) => {
             cb(res);
         });
     },
-    update: (id, cb)=>{
-        orm.update("burgers", id, (res)=>{
+    update: (id, devoured, cb)=>{
+        orm.update("burgers", id, devoured, (res)=>{
             cb(res);
         });
     },

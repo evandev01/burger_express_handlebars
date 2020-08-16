@@ -4,6 +4,7 @@ var router = express.Router();
 
 var burger = require("../models/burger.js");
 
+//get route ============================================
 router.get("/", (req, res) => {
   burger.all(data => {
     var hbsObj = {
@@ -14,42 +15,36 @@ router.get("/", (req, res) => {
   });
 });
 
-// router.post("/api/burgers", (req, res) => {
-//   console.log("created burger")
-//   burger.create(["burger_name"], [req.body.name], (result) => {
-//     console.log(result);
-//     result.json({ id: this.id })
-//   });
-// });
-
+//post route ===========================================
 router.post("/api/burgers", (req, res) => {
-  console.log("created burger")
-  burger.create(req.body.name, (result) => {
-    console.log(result);
+  // console.log(req.body)
+  burger.create(`${req.body.name}`, function (response) {
+
     res.status(200).end();
-    // res.render("index", hbsObj);
   });
 });
 
+//put route ============================================
 router.put("/api/burgers/:id", (req, res) => {
-  var id = "id = " + req.params.id;
-
-  console.log("id", id);
-
-  burger.update(id, (result) => {
+  console.log("in the put route");
+  var id = req.params.id;
+  console.log("the id is " + id);
+  console.log(req.body.devoured);
+  burger.update(id, req.body.devoured, (result) => {
     if (result.changedRows == 0) {
       return res.status(404).end();
     } else {
-      // res.status(200).end();
-      res.redirect("/")
+      // res.redirect("/")
+      return res.status(200).end();
     };
   });
 });
 
+//delete route =========================================
 router.delete("/api/burgers/:id", (req, res) => {
-  var condition = `id = ${req.params.id}`
+  var id = req.params.id
 
-  burger.delete(condition, (result) => {
+  burger.delete(id, (result) => {
     if (result.affectedRows == 0) {
       return res.status(404).end();
     } else {
@@ -57,7 +52,6 @@ router.delete("/api/burgers/:id", (req, res) => {
     };
   });
 });
-
 
 // Export routes for server.js to use.
 module.exports = router;

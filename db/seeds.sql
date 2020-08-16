@@ -1,17 +1,17 @@
 USE burgers_db;
 
-INSERT INTO burgers (burger_name, devoured)
-VALUES ("DA BURGER", true);
+INSERT INTO burgers (burger_name)
+VALUES ("DA BURGER");
 
-INSERT INTO burgers (burger_name, devoured)
-VALUES ("Mongo Burger", false);
+INSERT INTO burgers (burger_name)
+VALUES ("Mongo Burger");
 
-INSERT INTO burgers (burger_name, devoured)
-VALUES ("Angus Monster Burger", true);
+INSERT INTO burgers (burger_name)
+VALUES ("Angus Monster Burger");
 
-INSERT INTO burgers (burger_name, devoured)
-VALUES ("NADA Burger", false);
+INSERT INTO burgers (burger_name)
+VALUES ("NADA Burger");
 
-INSERT INTO burgers (burger_name, devoured)
-VALUES ("Bacon Cheddar Deluxe", true);
+INSERT INTO burgers (burger_name)
+VALUES ("Bacon Cheddar Deluxe");
 
